@@ -115,14 +115,13 @@ class Songs extends Component {
 
     onDbClick = (event) => {
 
-        
-      
-        
      //  this.props.history.push(event.target.id);
        this.setState({ytID: event.target.id});
         var note = document.getElementById(event.target.id)
        
-        note.style.boxShadow= '0px  0px 5px 7px rgb(231, 173, 64)';
+       note.style.boxShadow = '0px  0px 7px 3px rgb(231, 173, 64)';
+      
+   
         
      }  
 

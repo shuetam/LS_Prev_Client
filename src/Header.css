@@ -1,6 +1,6 @@
 .header
 {
-  background-color: #ffffff;
+  background-color: rgb(0, 0, 0);
   position: relative;
   width: 100vw;
   top: 0px;
@@ -23,23 +23,29 @@
 
 .main {
   margin-left: 50px;
+  margin-top: 5px;
   cursor: pointer;
   font-size: 20px;
   padding: 3px;
+ 
+  color: rgba(231, 173, 64, 0.637);
 }
 
 .switch {
   margin-left: 50px;
+  margin-top: 5px;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0,3;
   font-size: 17px;
   padding: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
 }
 
 .switch:hover {
   
-  opacity: 1;
-  text-shadow: -2px -2px 2px rgba(150, 150, 150, 1);
+  color: rgba(255, 255, 255, 0.842)
+
   
 }
 
@@ -63,24 +69,25 @@
   position: absolute;
   top: 28px;
   left: 130px;
-  text-shadow: -2px -2px 3px rgba(0, 0, 0, 0);
-  box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.274);
-  background-color: rgb(253, 253, 253);
+  background-color: rgba(0, 0, 0, 0.856);
   z-index: 155;
+  color:  rgba(255, 255, 255, 0.63);
+
+
 }
 
 #alert {
-  font-size: 11px;
+  font-size: 12px;
   padding: 1px;
   font-family: 'Mandali', sans-serif;
-  color: #000000ee;
+  color: #ffffffbd;
   display: none;
 }
 
 #infoLink {
   font-size: 10px;
   padding: 1px;
-  color: #000000e7;
+  color: #ffffffbb;
 }
 
 #infoLink:hover {

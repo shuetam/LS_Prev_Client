@@ -16,7 +16,7 @@ class Header extends Component {
     this.state = {
 
        
-        takeDataFrom: "http://localhost:5000/api/radio/allradiosongs/vox"
+        takeDataFrom: "http://localhost:5000/api/song/allarchive"
     }
 }
 
@@ -221,7 +221,7 @@ render () {
 
 return(
     <div className="header" >
-<div class="main" >LiveSearch</div> 
+<div class="main" >Live<span style={{color: "rgba(255, 255, 255, 0.5)"}}>S</span>earch</div> 
 
 {mainMenu}
 
