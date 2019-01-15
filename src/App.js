@@ -10,16 +10,16 @@ import Switch from 'react-router-dom/Switch';
 
 class App extends Component {
 
-  render () {
-    return (
-      <BrowserRouter>
-      <div>
-      
-      <Route path={'/:id?'} component={Header} />
-        </div>
-      </BrowserRouter>
-    );
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+
+                    <Route path={'/:id?'} component={Header} />
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;

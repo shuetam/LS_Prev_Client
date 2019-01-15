@@ -1,194 +1,159 @@
-.header
-{
-  background-color: rgb(0, 0, 0);
-  position: relative;
-  width: 100vw;
-  top: 0px;
-  left: 0px;
-  z-index: 450;
-  font-size: 20px;
-  padding: 0px;
-  font-family: 'Mandali', sans-serif;
-  color: #3b3b3b;
-  font-weight: 100;
-  display: flex;
-  box-shadow: -5px 5px 14px -7px #000000d5;
-
-  
+.header {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    z-index: 450;
+    font-size: 20px;
+    padding: 0px;
+    font-family: 'Mandali', sans-serif;
+    color: #3b3b3b;
+    font-weight: 100;
+    display: flex;
 }
 
 .menu {
-  display: flex;
+    display: flex;
+    width: 100%
 }
 
 .main {
-  margin-left: 50px;
-  margin-top: 5px;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 3px;
- 
-  color: rgba(231, 173, 64, 0.637);
+    margin-left: 50px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 3px;
+    color: rgba(231, 173, 64, 0.637);
 }
+
+    .main:hover {
+        color: rgba(231, 173, 64, 0.836);
+    }
 
 .switch {
-  margin-left: 50px;
-  margin-top: 5px;
-  cursor: pointer;
-  opacity: 0,3;
-  font-size: 17px;
-  padding: 3px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all 0.3s;
+    margin-left: 50px;
+    margin-top: 5px;
+    cursor: pointer;
+    opacity: 0,3;
+    font-size: 17px;
+    padding: 3px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
 }
 
-.switch:hover {
-  
-  color: rgba(255, 255, 255, 0.842)
+    .switch:hover {
+        color: rgba(255, 255, 255, 0.842)
+    }
 
-  
+#propField {
+    cursor: default;
+    display: none;
+    padding: 15px;
+    padding-top: 0px;
+    font-size: 13px;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: rgba(32, 32, 32, 0.856);
+    z-index: 155;
+    color: rgba(255, 255, 255, 0.678);
 }
+
+#prop:hover #propField {
+    display: block;
+}
+
+.slide {
+    width: 100%;
+}
+
+#s:hover {
+    cursor: pointer;
+}
+
 
 #music:hover #radio {
-  display: block;
+    display: block;
 }
 
 #music label:hover {
-  
-  cursor: pointer;
-  font-size: 14px;
-  
+    cursor: pointer;
+    font-size: 14px;
 }
 
 #radio {
-  cursor: default;
-  padding: 10px;
-  padding-top: 1px;
-  font-size: 13px;
-  display: none;
-  position: absolute;
-  top: 28px;
-  left: 130px;
-  background-color: rgba(0, 0, 0, 0.856);
-  z-index: 155;
-  color:  rgba(255, 255, 255, 0.63);
-
-
+    cursor: default;
+    padding: 15px;
+    padding-top: 10px;
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    top: 33px;
+    left: 130px;
+    background-color: rgba(32, 32, 32, 0.856);
+    z-index: 155;
+    color: rgba(255, 255, 255, 0.678);
 }
 
+
+
 #alert {
-  font-size: 12px;
-  padding: 1px;
-  font-family: 'Mandali', sans-serif;
-  color: #ffffffbd;
-  display: none;
+    font-size: 12px;
+    padding: 1px;
+    font-family: 'Mandali', sans-serif;
+    color: #ffffffbd;
+    display: none;
 }
 
 #infoLink {
-  font-size: 10px;
-  padding: 1px;
-  color: #ffffffbb;
+    font-size: 10px;
+    padding: 1px;
+    color: #ffffff;
+    opacity: 1;
 }
 
-#infoLink:hover {
-  font-size: 10px;
-  cursor: default;
+    #infoLink:hover {
+        font-size: 10px;
+        cursor: default;
+    }
 
-}
-
-#infoLink:hover #info {
-  display: block;
-
-}
+        #infoLink:hover #info {
+            display: block;
+        }
 
 #info {
-  cursor: default;
-  padding: 10px;
-  font-size: 11px;
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 40px;
-  width: 230px;
-  text-shadow: -2px -2px 3px rgba(0, 0, 0, 0);
-  box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.274);
-  background-color: rgb(255, 255, 255);
-  z-index: 150;
-
+    cursor: default;
+    padding: 10px;
+    font-size: 12px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    width: 230px;
+    background-color: rgb(68, 68, 68);
+    z-index: 150;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+.musicButtton {
+    width: 200px;
+    height: 25px;
+    border: rgb(0, 0, 0) 1px solid;
+    border-radius: 5px;
+    background-color: rgb(0, 110, 255);
+    display: block;
+    color: white;
+    transition: border 0.5s;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 11px;
 }
 
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+    .musicButtton:hover {
+        border: rgba(187, 187, 187, 0.801) 1px solid;
+        cursor: pointer;
+    }
+
+button:focus {
+    outline: 0;
 }
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-
-
-
-
-
-
-
-
-

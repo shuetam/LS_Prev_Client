@@ -3,43 +3,40 @@
     color: rgb(0, 0, 0);
     z-index: 150;
     background-color: rgba(0, 0, 0, 0.61);
-    opacity: 0.3;
+    opacity: 0.4;
     text-align: center;
     margin: 0px;
     transition: opacity 0.2s;
-    box-shadow: 0px  0px 3px 1px rgb(255, 255, 255); 
-   }
- 
+    box-shadow: 0px 0px 3px 1px rgb(255, 255, 255);
+   
+}
+
+.object-fit_cover {
+    object-fit: cover
+}
 
 
-  
-
-
-  .entityImg {
+.entityImg {
     position: fixed;
     color: rgba(255, 255, 255, 0.897);
-    text-shadow:  -1px 2px 5px rgba(0, 0, 0, 0.74); 
+    text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.74);
     z-index: 100;
-    
+    opacity: 0.4;
+}
 
-    opacity: 0.6;
-   
-
-  }
+    .entityImg:hover {
+        opacity: 1;
+    }
 
 
 .entity:hover {
-color: rgb(255, 255, 255);
-opacity: 1;
-z-index: 150;
-box-shadow: 0px  0px 3px 2px rgba(255, 255, 255, 0.842);
-
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    z-index: 155;
+    box-shadow: 0px 0px 3px 2px rgb(255, 255, 255);
 }
 
 
 .entityClick {
-  text-shadow: 0px 0px 5px rgb(231, 173, 64);
-  
+    text-shadow: 0px 0px 5px rgb(231, 173, 64);
 }
-
-
