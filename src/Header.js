@@ -32,7 +32,8 @@ class Header extends Component {
     }
 
     Main = () => {
-        this.props.history.push('/');
+     //   this.props.history.push('/');
+     window.location.replace("/");
     }
 
 
