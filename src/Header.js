@@ -3,39 +3,38 @@ import React, { Component } from 'react';
 import './Header.css';
 import "./icon1/css/fontello.css";
 import { Link, Route, NavLink, BrowserRouter, Switch } from 'react-router-dom';
-import Songs from './Songs';
+import YTArea from './YTArea';
 import Field from './Field';
 import First from './First';
+import { GoogleLogin } from 'react-google-login';
 
-var fetchData = "";
+
+var fetchData = "http://localhost:5000/api/song/random";
 var opacity = 0.4;
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
-
-
-
         this.state = {
 
-            takeDataFrom: "http://localhost:5000/api/song/allradiosongs/chillizet",
+            takeDataFrom: "http://localhost:5000/api/song/allradiosongs/rmf",
             opacity: 0.4
 
         }
     }
 
-
-
+    
     componentDidMount() {
-        console.log(this.props.match.params.id);
+        console.log("PARAMS! id!:" + this.props.match.params.id);
+
+        console.log("PROPS!:"+ {...this.props});
     }
 
     Main = () => {
      //   this.props.history.push('/');
      window.location.replace("/");
     }
-
 
     clickCheckBox = () => {
 
@@ -86,7 +85,7 @@ class Header extends Component {
 
 
         if (fetchFrom === "") {
-            fetchData = "http://localhost:5000/api/song/allradiosongs/vox";
+            fetchData = "http://localhost:5000/api/song/allradiosongs/rmf";
         }
 
     }
@@ -94,32 +93,18 @@ class Header extends Component {
 
     showSongs = () => {
 
-        document.getElementById("s").value = 50;
+       // document.getElementById("s").value = 50;
         console.log("Fetch data when clicked:  " + fetchData);
         this.setState({ takeDataFrom: fetchData })
         this.props.history.push('/songs');
     }
 
 
-    rangeHandler = (event) => {
-        console.log(event.target.value / 100);
-        console.log(document.getElementsByClassName("entity"));
-        var songs = document.getElementsByClassName("entity");
-        for (var i = 0; i < songs.length; i++) {
-            songs[i].style.opacity = event.target.value / 100;
-        }
-    }
-
-
-
-    iconsChanger = () => {
-        var icons = document.getElementsByClassName("entity");
-        for (var i = 0; i < icons.length; i++) {
-            icons[i].style.top = "40px";
-        }
-    }
-
-
+     responseGoogle = (response) => {
+         debugger;
+        console.log(response);
+      }
+       
     render() {
 
         let mainMenu = (<div class="menu">
@@ -200,27 +185,25 @@ class Header extends Component {
                     </p>
 
                     <button class="musicButtton" onClick={this.showSongs}>POKA<span style={{ fontSize: 14 }}>&#380;</span> UTWORY</button>
-
-
                 </div>
 
             </div>
 
             <div class="switch" onClick={this.iconsChanger}> Film   </div>
             <div class="switch"> Wydarzenia </div>
-            <div id="prop" class="switch" style={{ marginRight: '10px', marginLeft: 'auto' }} > <i class="icon-cog" />
+<div class="switch">    <GoogleLogin
+          clientId="565898203972-ai9uh3sbj7iuitggtaaa1en172jvmd9r.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        /></div>
 
-                <div id="propField" >
-                    <p>Jasność ikon:</p>
-                    <input type="range" id="s"
-                        onChange={this.rangeHandler} />
-                </div>
-            </div>
         </div>
         )
 
-
         return (
+          <div>
             <div className="header" >
                 <div class="main" onClick={this.Main} >Live<span style={{ color: "rgba(255, 255, 255, 0.5)" }}>S</span>earch</div>
 
@@ -233,7 +216,7 @@ class Header extends Component {
                     )}/>
                     
                     <Route path={'/songs'} component={(props) => (
-                        <Songs {...props} fetchData={this.state.takeDataFrom} />
+                        <YTArea {...props} fetchData={this.state.takeDataFrom} />
                     )} />
 
 {/*                     <Route path={'/youtubeid/:YT?'} exact component={(props) => (
@@ -242,6 +225,8 @@ class Header extends Component {
 
                 </Switch>
 
+            </div>
+            <div className="footer"></div>
             </div>
         )
 

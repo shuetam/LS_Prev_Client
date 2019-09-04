@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import './Songs.css';
+import './YTArea.css';
 import Header from './Header';
 import Field from './Field';
 import { Link, Route, NavLink } from 'react-router-dom';
-import Song from './Song';
+import YTIcon from './YTIcon';
 import { BrowserRouter } from 'react-router-dom';
 import randoom from 'random-int';
 import axios from './axios-song';
@@ -30,7 +30,7 @@ class Songs extends Component {
             loaded: false,
             intervalSong: null,
             maxCount: null,
-            songCount: null,
+            ytCount: null,
             fetchFrom: null,
             ytID: "",
             actuallOpacity: 0.4,
@@ -63,8 +63,6 @@ class Songs extends Component {
         fetch(this.props.fetchData).then(res => res.json()).then((result) =>
             this.setState({ songs: result })).then(() =>
                 this.setMaxCount());
-
-
     }
 
     componentWillUpdate() {
@@ -96,7 +94,7 @@ class Songs extends Component {
             this.setState({ maxCount: max_Count });
 
             this.setState({ ytID: this.state.songs[this.state.songs.length - 1].videoId });
-            this.setState({ mainTitle: this.state.songs[this.state.songs.length - 1].title })
+           // this.setState({ mainTitle: this.state.songs[this.state.songs.length - 1].title })
 
             var note = document.getElementById(this.state.songs[this.state.songs.length - 1].videoId)
             this.setState({ nowPlayed: note.id });
@@ -131,8 +129,6 @@ class Songs extends Component {
             var result = ((50 * (c - this.state.maxCount)) / (this.state.maxCount - 1)) + 80;
             return result + 'px';
         }
-
-
     }
 
     nextSongHandler = () => {
@@ -224,13 +220,34 @@ class Songs extends Component {
         document.getElementById(event.target.id).style.opacity = this.state.actuallOpacity;
     }
 
+    rangeHandler = (event) => {
+        var songs = document.getElementsByClassName("entity");
+        for (var i = 0; i < songs.length; i++) {
+            songs[i].style.opacity = event.target.value / 100;
+        }
+    }
+
+        liveSearch = (event) => {  
+        var songs = document.getElementsByClassName("entity");
+        for (var i = 0; i < songs.length; i++) {
+            if(songs[i].title.toString().toLowerCase().includes(event.target.value.toString().toLowerCase()))
+            {
+                songs[i].style.visibility = 'visible';
+            }
+            else
+            {
+                songs[i].style.visibility = 'hidden';
+            }
+        }
+    }
+
     render(props) {
         var randomInt = require('random-int');
         let songs = this.state.songs.map(song => {
 
             return (
 
-                <Song className="oneSong" title={song.title} yt={song.videoId} id={song.videoId}
+                <YTIcon  title={song.title} yt={song.videoId} id={song.videoId}
                     linkTo={this.onDbClick}
                     size={this.state.loaded? this.setSize(parseInt(song.count)) : '0px' }
                     location={ this.state.loaded? 
@@ -243,14 +260,25 @@ class Songs extends Component {
             )
         })
 
-        return (
-            <div>
+        
+
+            return (
+                
+                <div>
+            <div> <input id="ls"  onChange={this.liveSearch} placeholder="Wyszukaj..." class="switchSearch" type="text"/></div>
+            <div id="prop" class="switch" style={{ position: 'absolute', right: '5px' }} > <i class="icon-cog" />
+                <div id="propField" style={{ position: 'absolute', right: '0px', top: '20px' }}  >
+                    <p>Jasność ikon:</p>
+                    <input type="range" id="s"
+                        onChange={this.rangeHandler} />
+                </div>
+            </div>
+
+                
+                <Field play={this.state.ytID} show={this.state.loaded} nextSong={this.nextSongHandler} loadText={this.props.fetchData} />
 
 
-                <Field play={this.state.ytID} nextSong={this.nextSongHandler} />
-
-
-                <div class="title"> {this.state.mainTitle} {this.state.songCount} </div>
+                <div class="title"> {this.state.mainTitle} {this.state.ytCount} </div>
 
 
                 {songs}
@@ -259,6 +287,8 @@ class Songs extends Component {
             </div>
         );
     }
+
+    
 
     
 }

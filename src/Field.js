@@ -6,11 +6,7 @@ import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
 import YouTube from 'react-youtube';
 
 
-
-
 class Field extends Component {
-
-
 
     constructor(props) {
         super(props);
@@ -20,7 +16,6 @@ class Field extends Component {
             reflectVideo: null,
             showReflect: false,
             interval: null
-
         }
     }
 
@@ -48,26 +43,17 @@ class Field extends Component {
         var randomInt = require('random-int');
 
         if ((Math.abs(diff) > 0.06)) {
-
-
-
             this.state.reflectVideo.seekTo(this.state.mainVideo.getCurrentTime() + randomFloat(0.1, 0.8));
-
             //   console.log("Random INT = " + randomInt(1,3));
-
         }
 
         if ((Math.abs(diff) <= 0.06)) {
             console.log("diff time ----->" + (this.state.mainVideo.getCurrentTime() - this.state.reflectVideo.getCurrentTime()));
             clearInterval(this.state.interval);
-
-
             console.log(this.state.interval);
             this.setState({ showReflect: true });
         }
         //  clearInterval(interval);
-
-
     }
 
 
@@ -113,6 +99,7 @@ class Field extends Component {
                 iv_load_policy: 3
             }
         };
+        let loading = (<div className="field">Chwileczke... {this.props.loadText}</div>);
 
 
         let field = (
@@ -139,8 +126,12 @@ class Field extends Component {
                 </div>
             </div>
         );
-
-        return field;
+        if(this.props.show) {
+            return field;   
+        }
+        else {
+            return loading;
+        }
     }
 }
 

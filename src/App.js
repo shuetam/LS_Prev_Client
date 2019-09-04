@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Header';
 import Field from './Field';
-import Songs from './Songs';
+import YTArea from './YTArea';
 import { Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Switch from 'react-router-dom/Switch';

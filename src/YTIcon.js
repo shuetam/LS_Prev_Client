@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './Song.css';
+import './YTIcon.css';
 import Header from './Header';
 import Field from './Field';
 import { Link, Route, NavLink, withRouter } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 
-class Song extends Component {
+class YTIcon extends Component {
 
     render() {
         var src = 'https://i.ytimg.com/vi/' + this.props.id + '/hqdefault.jpg'
@@ -20,7 +20,7 @@ class Song extends Component {
                 
                 >
                 <img class="object-fit_cover" title={this.props.title}
-                    onClick={this.props.click} title={this.props.title}
+                  
                     id={this.props.id}
                     onMouseOver={this.props.onHover}
                     onMouseLeave={this.props.onLeave}
@@ -32,4 +32,4 @@ class Song extends Component {
     }
 }
 
-export default Song;
+export default YTIcon;
